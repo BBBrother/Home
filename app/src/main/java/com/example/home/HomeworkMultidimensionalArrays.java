@@ -81,7 +81,7 @@ public class HomeworkMultidimensionalArrays {
                 }
             }
         }
-        System.out.println("Представление строковым массивом");
+        System.out.println("Представление строковым массивом ");
         System.out.println(Arrays.deepToString(textArray));
     }
 }
