@@ -18,7 +18,12 @@ public class CreditCard {
     public void withdraw(){
         Scanner remove = new Scanner(System.in);
         System.out.println("Введите сколько денег хотите снять с карты "+cardNumber);
-        this.balance = balance - remove.nextInt();
+        int innerRemove = remove.nextInt();
+        if (innerRemove>=balance){
+        this.balance = balance - innerRemove;
+        } else {
+            System.out.println("Недостаточно денег");
+        }
 
     }
 
