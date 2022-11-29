@@ -1,4 +1,4 @@
 package com.example.home.homework_8;
 
-public class Merketer {
+public class Merketer extends FakeWorkplace{
 }
