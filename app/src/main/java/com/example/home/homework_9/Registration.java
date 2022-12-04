@@ -3,7 +3,7 @@ package com.example.home.homework_9;
 import java.util.Scanner;
 
 public class Registration {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws WrongLoginException, WrongPasswordException {
         registration();
     }
 
