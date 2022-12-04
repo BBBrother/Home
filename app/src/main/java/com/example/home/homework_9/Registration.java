@@ -4,49 +4,54 @@ import java.util.Scanner;
 
 public class Registration {
     public static void main(String[] args) throws WrongLoginException, WrongPasswordException {
-        osnova();
-
+        registration();
     }
 
-    static void osnova() throws WrongLoginException, WrongPasswordException {
-        try {
-            Scanner in = new Scanner(System.in);
-
-            System.out.println("Логин должен содержать только латинские буквы, цифры и знак подчеркивания. Длина логина должна быть меньше 20 символов. \nВведите логин");
-            String login = in.nextLine();
-            checkLogin(login);
-            System.out.println("Пароль должен содержать только латинские буквы, цифры и знак подчеркивания. Длина пароля должна быть меньше 20 символов. \nВведите пароль");
-            String password = in.nextLine();
-            checkPassword(password);
-            String correctPassword = in.nextLine();
-            matchPassword(correctPassword, password);
-        } catch (WrongPasswordException | WrongLoginException error) {
-            System.out.println("Ощибка ввода данных");
+    static boolean correct(String data) {
+        boolean check;
+        String testWord = "[A-Za-z\\d_]{1,20}";
+        if (data.matches(testWord)) {
+            check = true;
+        } else {
+            check = false;
         }
+        return check;
     }
 
-    static void checkLogin(String verificationLogin) throws WrongLoginException {
-
-        if (verificationLogin.matches("[A-Za-z\\d_]{1,20}")) {
+    static void receptionLoginAndPassword(String login, String password, String correctPassword) throws WrongLoginException, WrongPasswordException {
+        if (correct(login)) {
             System.out.println("Логин принят");
         } else {
             throw new WrongLoginException("Некоректно введён логин");
         }
-    }
-
-    static void checkPassword(String verificationPassword) throws WrongPasswordException {
-        if (verificationPassword.matches("[A-Za-z\\d_]{1,20}")) {
-            System.out.println("Введите пароль ещё раз");
+        if (correct(password)) {
         } else {
             throw new WrongPasswordException("Некорректно введён пароль");
         }
-    }
-
-    static void matchPassword(String matchPassword, String password) {
-        if (matchPassword.equals(password)) {
+        if (correctPassword.equals(password)) {
             System.out.println("Пароль принят");
         } else {
             System.out.println("Пароли не совпадают");
+        }
+    }
+
+    static void registration() throws WrongLoginException, WrongPasswordException {
+        try {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Логин должен содержать только латинские буквы, цифры и знак подчеркивания. Длина логина должна быть меньше 20 символов. \nВведите логин");
+            String login = in.nextLine();
+
+            System.out.println("Пароль должен содержать только латинские буквы, цифры и знак подчеркивания. Длина пароля должна быть меньше 20 символов. \nВведите пароль");
+            String password = in.nextLine();
+
+            System.out.println("Повторно введите пароль");
+            String confirmPassword = in.nextLine();
+
+            receptionLoginAndPassword(login, password, confirmPassword);
+        } catch (WrongLoginException errorLogin) {
+            System.out.println("Некоректный логин");
+        } catch (WrongPasswordException errorPassword) {
+            System.out.println("Некоректный пароль");
         }
     }
 }
