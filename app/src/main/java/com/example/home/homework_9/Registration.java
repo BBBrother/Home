@@ -3,7 +3,7 @@ package com.example.home.homework_9;
 import java.util.Scanner;
 
 public class Registration {
-    public static void main(String[] args) throws WrongLoginException, WrongPasswordException {
+    public static void main(String[] args) {
         registration();
     }
 
@@ -34,7 +34,7 @@ public class Registration {
         }
     }
 
-    static void registration() {
+    static void registration() throws WrongLoginException, WrongPasswordException {
         Scanner in = new Scanner(System.in);
         System.out.println("Логин должен содержать только латинские буквы, цифры и знак подчеркивания. Длина логина должна быть меньше 20 символов. \nВведите логин");
         String login = in.nextLine();
@@ -47,9 +47,9 @@ public class Registration {
         try {
             receptionLoginAndPassword(login, password, confirmPassword);
         } catch (WrongLoginException errorLogin) {
-            System.out.println("Некоректный логин");
+            throw new WrongLoginException("Некоректный логин");
         } catch (WrongPasswordException errorPassword) {
-            System.out.println("Некоректный пароль");
+            throw new WrongPasswordException("Некоректный пароль");
         }
     }
 }
