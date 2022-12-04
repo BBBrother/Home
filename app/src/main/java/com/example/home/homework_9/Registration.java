@@ -35,7 +35,6 @@ public class Registration {
     }
 
     static void registration() {
-
         Scanner in = new Scanner(System.in);
         System.out.println("Логин должен содержать только латинские буквы, цифры и знак подчеркивания. Длина логина должна быть меньше 20 символов. \nВведите логин");
         String login = in.nextLine();
@@ -44,7 +43,6 @@ public class Registration {
         String password = in.nextLine();
 
         System.out.println("Повторно введите пароль");
-
         String confirmPassword = in.nextLine();
         try {
             receptionLoginAndPassword(login, password, confirmPassword);
