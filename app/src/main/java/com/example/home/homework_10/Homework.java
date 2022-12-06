@@ -2,7 +2,6 @@ package com.example.home.homework_10;
 
 import java.util.Scanner;
 
-
 public class Homework {
     private static final String PATTERN_DOCUMENT_NAME = "\\d{4}-[A-z]{3}-\\d{4}-[A-z]{3}-\\d[A-z]\\d[A-z]";
 
@@ -30,8 +29,5 @@ public class Homework {
         PlayingWithDocumentName.outputDocumentLetters(documentName);
         PlayingWithDocumentName.checkingFogMatchingABC(documentName);
         PlayingWithDocumentName.checkingToEnding1a2b(documentName);
-
     }
-
-
 }
