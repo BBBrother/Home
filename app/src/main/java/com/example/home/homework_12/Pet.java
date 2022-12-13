@@ -1,8 +1,8 @@
 package com.example.home.homework_12;
 
-public class Pet {
-    private String name;
-    private String breed;
+public abstract class Pet {
+    private final String name;
+    private final String breed;
 
     public Pet(String name, String breed) {
         this.name = name;
@@ -17,7 +17,5 @@ public class Pet {
         return breed;
     }
 
-    public String petInfo() {
-        return name+breed;
-    }
+    public abstract String petInfo();
 }

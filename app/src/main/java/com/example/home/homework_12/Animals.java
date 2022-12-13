@@ -2,10 +2,9 @@ package com.example.home.homework_12;
 
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Set;
 
 public class Animals {
-    static HashMap<String, Pet> animals = new HashMap<>();
+    private static final HashMap<String, Pet> animals = new HashMap<>();
 
     public static void main(String[] args) {
         createPet();
@@ -39,12 +38,11 @@ public class Animals {
         while (!animals.isEmpty()) {
             System.out.println("Введите имя житвотного которого хотите удалить или \"Стоп\" для остановки программы:");
             String deletePetName = in.nextLine();
-            Set<String> listAnimals = animals.keySet();
             if (deletePetName.equals("Стоп")) {
                 System.out.println("Всего хорошего!");
                 break;
             } else {
-                if (listAnimals.remove(deletePetName)) {
+                if (animals.containsKey(deletePetName)) {
                     animals.remove(deletePetName);
                     System.out.println("Остались:");
                     printPetInfo();

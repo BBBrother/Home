@@ -1,7 +1,7 @@
 package com.example.home.homework_12;
 
 public class Horse extends Pet{
-    private Integer weight;
+    private final int weight;
 
     public Horse(String name, String breed, Integer weight) {
         super(name, breed);
