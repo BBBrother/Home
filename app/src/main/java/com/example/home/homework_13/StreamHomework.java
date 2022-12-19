@@ -1,7 +1,6 @@
 package com.example.home.homework_13;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -17,7 +16,8 @@ public class StreamHomework {
             addNumber++;
         }
 
-        System.out.println("Ваши начальные элементы: " + Arrays.toString(randomNumber.toArray()));
+        System.out.println("Ваши начальные элементы: " + randomNumber);
+
         System.out.println("Длинна масива элементов после всех сортировок: " +
                 randomNumber.stream()
                         .distinct()
@@ -29,6 +29,13 @@ public class StreamHomework {
                         .map(number -> number * 2)
                         .filter(number -> number > 10)
                         .toArray().length);
-        System.out.println("Среднее арифметическое: " + randomNumber.stream().collect(Collectors.averagingInt(number -> number)));
+
+        System.out.println("Среднее арифметическое: " +
+                randomNumber.stream()
+                        .distinct()
+                        .map(number -> number * 2)
+                        .filter(number -> number > 10)
+                        .collect(Collectors.averagingInt(number -> number)));
+
     }
 }
